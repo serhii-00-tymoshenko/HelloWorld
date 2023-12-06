@@ -1,11 +1,9 @@
 package com.mintokoneko.helloworld.ui.content
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
@@ -26,16 +24,15 @@ class ContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupContent(requireActivity())
     }
 
     private fun setupContent(activity: FragmentActivity) {
         val transaction = activity.supportFragmentManager.beginTransaction()
 
-        val countriesFragmentId = binding.countriesFragment.id
+        val countriesContainerId = binding.countriesContainer.id
         val countriesFragment = CountriesFragment()
-        initTransaction(transaction, binding.countriesContainer.id, countriesFragment)
+        initTransaction(transaction, countriesContainerId, countriesFragment)
 
         val detailsFragmentId = binding.detailsFragment.id
         val detailsFragment = DetailsFragment()
